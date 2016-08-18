@@ -88,7 +88,7 @@ public class GamePlayingActivity {
 //    		WordList.removeWordVector1(ReplyMessage.replyWord, WordList.trainedWords1);
 //    		WordList.removeWordVector2(ReplyMessage.replyWord, WordList.trainedWords2);
 //    		WordList.removeWordVector3(ReplyMessage.replyWord, WordList.trainedWords3);
-//    		WordList.removeSelfWordVector(ReplyMessage.replyWord, WordList.selfTrainedWords);
+    		WordList.removeSelfWordVector(ReplyMessage.replyWord, WordList.selfTrainedWords);
     		
         	// 대답 생성
         	addReplyMessage(ReplyMessage.replyWord);        
@@ -136,7 +136,7 @@ public class GamePlayingActivity {
 //    	WordList.setTrainedWords1();
 //    	WordList.setTrainedWords2();
 //    	WordList.setTrainedWords3();
-//    	WordList.setSelfTrainedWords();		// 자체학습
+    	WordList.setSelfTrainedWords();		// 자체학습
     }
     
     // 주고 받는 단어를 프린트하는 메소드

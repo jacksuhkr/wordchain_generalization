@@ -42,10 +42,13 @@ public class IntroActivity {
 //        Classified.classifyWeights(WordVectors.wordVectors3, Classified.trainedWords3);
 //        
 //        // 자체학습 단어장
-//        Weight.getSelfWeights();
-//        WordVectors.getSelfWordVecteors();
-//        Maps.getSelfWeightMap();
-//        Classified.classifyWeights(WordVectors.selfWordVectors, Classified.selfTrainedWords);
+        Weight.getSelfWeights();
+        WordVectors.getSelfWordVecteors();
+        Maps.getSelfWeightMap();
+        Classified.classifyWeights(WordVectors.selfWordVectors, Classified.selfTrainedWords);
+        
+        System.out.println("단어개수 : " + Words.NUM_OF_WORDS);
+        System.out.println("가중치개수 : " + Weight.selfWeights.length);
 
         // 통계량을 보기위한 세팅들
         GameSetting.killerWordsPeriod = 5;          // 킬러단어 주기

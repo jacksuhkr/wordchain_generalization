@@ -120,6 +120,7 @@ public class WordFinder {
     // 학습데이터로 찾음
     public static String replyWithTrained(int lastNum, ArrayList<TreeSet<WordVector>> trainedWords) {
     	Iterator<WordVector> getMostValuableWord = trainedWords.get(lastNum).iterator();
+    	
     	if(getMostValuableWord.hasNext()) {
 			GamePlayingActivity.turnCounter++;
 			wordListNotEmpty = true;
