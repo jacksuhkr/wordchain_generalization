@@ -17,7 +17,7 @@ public class GameSetting {
 //    public static boolean dataSetNowUsing[];			// 이걸로 사용하고 있는 데이터셋만 단어 삭제하기?
     
     // 중간 과정 인쇄
-    public static boolean printMessages = false;
+    public static boolean printMessages = true;
     public static boolean printStartingWord = false;
     public static boolean printNumOfWords = true;
 

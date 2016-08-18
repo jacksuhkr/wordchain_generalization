@@ -77,7 +77,7 @@ public class FileReader {
 		for(int i=0; i<input.length(); i++) {
 			char subString = input.charAt(i);
 			if('°¡' > subString || subString > 'ÆR') {
-				System.out.println(subString + "°¡ ÀÖ¾î¼­ Á¦°Å");
+				System.out.println(subString + "°¡ ÀÖ¾î¼­ '" + input + "' Á¦°Å");
 				return false;
 			}
 		}

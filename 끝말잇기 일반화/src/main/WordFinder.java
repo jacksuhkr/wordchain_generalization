@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 import data_base.FirstLetters;
+import dueum_rule.DueumRule;
 import search_game_tree.SearchGameTree;
 import static_variables.GameSetting;
 import words.WordList;
@@ -104,7 +105,14 @@ public class WordFinder {
     // 특정 단어장에서 대답을 출력
     public static String replyWithRandom(int lastNum, ArrayList<ArrayList<String>> wordListType) {
         ArrayList<String> replyWords = new ArrayList<String>();     // 대답용 단어장 생성
+        
         replyWords.addAll(wordListType.get(lastNum));
+        
+        // last에 두음법칙을 적용해봄, 적용됐다면 if 문으로 들어가 두음법칙이 적용된 글자 단어장도 추가함 
+        int lastDuemUniCode = DueumRule.getLastDueum(last).hashCode() - '가';
+        if (DueumRule.dueumRuleApplied) {
+            replyWords.addAll(wordListType.get(lastDuemUniCode));
+        }
 
         // 대답용 단어장에 단어가 있을 경우 단어를 찾아서 return함
         if (replyWords.size()>GameSetting.resignLimitNumber) {
