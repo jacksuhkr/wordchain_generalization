@@ -105,8 +105,6 @@ public class WordFinder {
     public static String replyWithRandom(int lastNum, ArrayList<ArrayList<String>> wordListType) {
         ArrayList<String> replyWords = new ArrayList<String>();     // ´ë´ä¿ë ´Ü¾îÀå »ý¼º
         replyWords.addAll(wordListType.get(lastNum));
-        
-//        System.out.println("¿©±â´Â µµÂøÇÔ");
 
         // ´ë´ä¿ë ´Ü¾îÀå¿¡ ´Ü¾î°¡ ÀÖÀ» °æ¿ì ´Ü¾î¸¦ Ã£¾Æ¼­ returnÇÔ
         if (replyWords.size()>GameSetting.resignLimitNumber) {
@@ -136,17 +134,6 @@ public class WordFinder {
     public static String getReply(ArrayList<String> replyWordList) {
         // »ç¿ëÇÒ ´Ü¾î¸¦ ·£´ýÀ¸·Î ¼±ÅÃ
         int random = (int) (Math.random()*(replyWordList.size()));
-    	
-    	/*String word = "´ë´ä";
-    	boolean properWord = false;
-    	while(!properWord) {
-            int random = (int) (Math.random()*(replyWordList.size()));
-            word = replyWordList.get(random);
-            int wordLastNum = FirstLetters.getFirstLetterNumber(lastLetter(word));
-            if(0 <= wordLastNum && wordLastNum <= ('ÆR'-'°¡'))
-            { properWord = true; }
-    	}*/
-
         return replyWordList.get(random);
     }
     

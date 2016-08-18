@@ -33,7 +33,7 @@ public class Classified {
         // 첫글자의 글자번호를 구해서, 그 번지에다가 단어를 추가함.
         for(int i=0; i<Words.words.length; i++) {
             int firstLetterNum = FirstLetters.getFirstLetterNumber(Words.words[i]);        // 단어 첫글자의 글자번호
-            System.out.println(Words.words[i] + firstLetterNum);
+//            System.out.println(Words.words[i] + firstLetterNum);
             words.get(firstLetterNum).add(Words.words[i]);                   // 해당 주소에 단어 추가
         }
     }
