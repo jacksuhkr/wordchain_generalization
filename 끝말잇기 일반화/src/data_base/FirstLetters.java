@@ -13,7 +13,8 @@ public class FirstLetters {
 	
     // 단어 첫번째 글자의 글자번호를 출력하는 메소드
     public static int getFirstLetterNumber(String input) {
-        char firstLetter = input.charAt(0);
+        System.out.println(input);
+    	char firstLetter = input.charAt(0);
         int unicode = firstLetter - '가';                   
         return unicode;
     }
