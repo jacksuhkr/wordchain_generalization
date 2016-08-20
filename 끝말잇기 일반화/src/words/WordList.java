@@ -1,9 +1,11 @@
 package words;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 import data_base.*;
+import main.GamePlayingActivity;
 
 public class WordList {
     // 사용할 단어사전 어레이 선언
@@ -78,6 +80,17 @@ public class WordList {
 		int firstLetterNum = FirstLetters.getFirstLetterNumber(wordUsed);
 		WordVector vectorToRemove = new WordVector(wordUsed, Maps.selfWeightMap.get(wordUsed));
 		trainedWords.get(firstLetterNum).remove(vectorToRemove);
+		
+		// 테스트
+		System.out.println(trainedWords.get(firstLetterNum).contains(vectorToRemove));
+		Iterator<WordVector> getMostValuableWord = trainedWords.get(firstLetterNum).iterator();
+    	for(int i=0; i<trainedWords.get(firstLetterNum).size(); i++) {
+    		if(getMostValuableWord.hasNext()) {
+    			System.out.println(getMostValuableWord.next().word 
+    					+ "," + getMostValuableWord.next().weight);
+        	}
+    	}
+    	
 	}
     
     public static void copyWords

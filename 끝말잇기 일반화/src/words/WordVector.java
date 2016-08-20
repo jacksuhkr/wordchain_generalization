@@ -27,7 +27,7 @@ public class WordVector implements Comparable<WordVector> {
     @Override
     public int compareTo(WordVector o) {
     	// 단어도 같고 가중치도 같을때만 같은거임
-    	if(word==o.word) { if (weight==o.weight) { return 0; } }
+    	if(word.equals(o.word)) { if (weight==o.weight) { return 0; } }
     	// 단어가 다르고 가중치가 같으면 1을 리턴
     	if(weight<=o.weight) { return 1; }
     	else { return -1; }

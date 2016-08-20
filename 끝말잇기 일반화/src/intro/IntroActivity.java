@@ -110,8 +110,15 @@ public class IntroActivity {
 	       	   	System.out.println("자체학습을 몇번 반복하실 건가요?");
 	       	   	numOfTraining = scanner.nextInt();	scanner.nextLine();	
             	for(int i=1; i<=numOfTraining; i++) {
-            		System.out.println("\n\n" + i + "번째 자체학습 시작합니다");
+            		System.out.println("\n");
+            		System.out.println(i + "번째 자체학습 시작합니다" +
+            					" <단어당 " + GamePlayingActivity.numOfGamesToPlay + "판>");
+                    long trainStartTime = System.nanoTime();		// 시간 측정 시작
             		startGame();
+            		long trainEndTime = System.nanoTime();			// 끝난 시간
+                	float trainTimeSpent = 
+                			(float) (trainEndTime - trainStartTime) / (float) 1000000000;
+                	System.out.println(i + "번째 학습 걸린시간 : " + trainTimeSpent + "초");
             		writeTrainedWeight();
             		cloneWeight(i);
             	}
