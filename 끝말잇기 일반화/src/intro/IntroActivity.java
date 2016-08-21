@@ -53,6 +53,8 @@ public class IntroActivity {
         System.out.println("단어개수 : " + Words.NUM_OF_WORDS);
         System.out.println("가중치개수 : " + Weight.selfWeights.length);
         
+        
+        // WordVector를 트리셋에서 제대로 비교하지 못하나 테스트
         WordVector test1 = new WordVector("시험", (float) 0.2);
         WordVector test2 = new WordVector("시험", (float) 0.2);
         System.out.println(test1.compareTo(test2));
