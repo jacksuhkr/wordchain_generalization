@@ -79,62 +79,12 @@ public class WordList {
 		int firstLetterNum = FirstLetters.getFirstLetterNumber(wordUsed);
 		WordVector vectorToRemove = new WordVector(wordUsed, Maps.selfWeightMap.get(wordUsed));
 
-		// 테스트, 복사과정에서 문제가 있나 싶어서 창고 단어장에서 검색함 ㅋ
-		System.out.print("단어 지우기전, 창고 단어장에 " + vectorToRemove.word + 
-				vectorToRemove.word.hashCode() + "," + vectorToRemove.weight + "가 있니?  ");
-//		System.out.println(trainedWords.get(firstLetterNum).contains(vectorToRemove));	// 단어가 있는지 없는지
-		System.out.println(Classified.selfTrainedWords.get(firstLetterNum).contains(vectorToRemove));
-		System.out.print("혹시 뭔가가 null인가? "); System.out.println(vectorToRemove==null);
-		
-		// 단어장의 단어들을 다 확인해보자, 정말 없는지
-		Iterator<WordVector> getMostValuableWord = Classified.selfTrainedWords.get(firstLetterNum).iterator();
-//		Iterator<WordVector> getMostValuableWord = trainedWords.get(firstLetterNum).iterator();
-		while(getMostValuableWord.hasNext()) {
-			WordVector checkContents = getMostValuableWord.next();
-			System.out.println
-				(checkContents.word + checkContents.word.hashCode() + 
-						"," + checkContents.weight);
-			if(checkContents.word.equals(wordUsed)) {
-				System.out.println("<<<<여기있네 찾았다, 지워야지>>>>");
-				System.out.print("같은 단어라는데, 이 둘은 같은 객체인가?  ");
-				System.out.println(vectorToRemove.equals(checkContents));
-				// 해시코드를 확인해봤으나, 두 객체의 해시코드가 달라도, 단어장에서 잘 찾아서 지우는 경우가 많았다
-				System.out.println("둘의 해시코드를 비교해볼까? " + 
-						vectorToRemove.hashCode() + " , " + checkContents.hashCode());
-				System.out.print("단어는 같아?  ");
-				System.out.println(vectorToRemove.word.equals(checkContents.word));
-				System.out.print("가중치는 같아?  ");
-				System.out.println(vectorToRemove.weight==checkContents.weight);
-				System.out.println("단어도, 가중치도, 객체도 같은데 지웠어?" + 
-						trainedWords.get(firstLetterNum).remove(checkContents));;
-				break;
-			}
-    	}
-   
-		/*
-		// 혹시 타입이 안 맞는건가 테스트
-    	try {
-    		trainedWords.get(firstLetterNum).remove(vectorToRemove);		// 단어를 지움
-    	} catch (ClassCastException e) {
-    		System.out.println("타입이 안 맞음");
-    	}
-    	*/
-
-		/*
     	// 지우는걸 실패하면 맨 앞 단어와 비교하고 같으면 지움
     	if(!trainedWords.get(firstLetterNum).remove(vectorToRemove)) {
-    		System.out.println("지울단어 " + vectorToRemove.word + vectorToRemove.weight);
-    		System.out.println("Set단어 " + trainedWords.get(firstLetterNum).first().word 
-    				+ trainedWords.get(firstLetterNum).first().weight);
-    		if(vectorToRemove.equals(trainedWords.get(firstLetterNum).first())) {
+    		if(vectorToRemove.compareTo(trainedWords.get(firstLetterNum).first())==0) {	
     			trainedWords.get(firstLetterNum).pollFirst();
     		}	
     	}
-    	*/
-    	
-		System.out.print("단어 지운 후, " + vectorToRemove.word + 
-				vectorToRemove.word.hashCode() + "," + vectorToRemove.weight + "가 있니?  ");
-		System.out.println(trainedWords.get(firstLetterNum).contains(vectorToRemove));	// 단어가 있는지 없는지
 	}
     
     @SuppressWarnings("unchecked")

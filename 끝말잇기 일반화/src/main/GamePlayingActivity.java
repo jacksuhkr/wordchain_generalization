@@ -92,17 +92,6 @@ public class GamePlayingActivity {
 //    		WordList.removeWordVector3(ReplyMessage.replyWord, WordList.trainedWords3);
     		WordList.removeSelfWordVector(ReplyMessage.replyWord, WordList.selfTrainedWords);
     		
-    		// 뭔가 다르게 되어있나 테스트
-    		String wordUsed = ReplyMessage.replyWord;
-    		for (int i=0; i<Words.NUM_OF_WORDS; i++) {
-    			if(ReplyMessage.replyWord.equals(Words.words[i])) {
-    				System.out.println(WordVectors.selfWordVectors[i].word
-    						+ "," + WordVectors.selfWordVectors[i].weight);
-    				System.out.println(wordUsed + "," + Maps.selfWeightMap.get(wordUsed));
-    			}
-    		}
-    		System.out.println(turnCounter);
-    		
         	// 대답 생성
         	addReplyMessage(ReplyMessage.replyWord);        
         	

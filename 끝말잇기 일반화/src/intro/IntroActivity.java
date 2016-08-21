@@ -51,28 +51,9 @@ public class IntroActivity {
         Maps.getSelfWeightMap();
         Classified.classifyWeights(WordVectors.selfWordVectors, Classified.selfTrainedWords);
         
-        // 단어랑 가중치랑 개수가 제대로 맞았나 확인
+        // 단어랑 가중치랑 개수가 제대로 맞았나 확인 - 의미없는 비교, 가중치개수를 NUM_OF_WORDS로 설정해놨으니
         System.out.println("단어개수 : " + Words.NUM_OF_WORDS);
         System.out.println("가중치개수 : " + Weight.selfWeights.length);
-        
-        
-        // WordVector를 트리셋에서 제대로 비교하지 못하나 테스트
-        WordVector test1 = new WordVector("시험", (float) 0.2);
-        WordVector test2 = new WordVector("시험", (float) 0.2);
-        System.out.println("둘의 대소관계? " + test1.compareTo(test2));
-        System.out.println("둘이 같나? " + test1.equals(test2));
-        
-        // 혹시 ArrayList<TreeSet<WordVector>>를 만들면 안 되는 건가해서 확인해봤는데 그것도 아님 ㅋ
-        ArrayList<TreeSet<WordVector>> testArray = new ArrayList<TreeSet<WordVector>>();
-        TreeSet<WordVector> testSet = new TreeSet<WordVector>();
-        testSet.add(test1);
-        testArray.add(testSet);
-        System.out.println("안에 들어 있어? " + testArray.get(0).contains(test1));
-        Iterator<WordVector> iterator = testArray.get(0).iterator();
-        while(iterator.hasNext()) {
-        	System.out.println(iterator.next().word);
-        }
-        
 
         // 통계량을 보기위한 세팅들
         GameSetting.killerWordsPeriod = 5;          // 킬러단어 주기
