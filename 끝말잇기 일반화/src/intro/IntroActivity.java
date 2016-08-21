@@ -2,11 +2,13 @@ package intro;
 
 
 import java.util.Scanner;
+import java.util.TreeSet;
 
 import data_base.*;
 import main.GamePlayingActivity;
 import static_variables.GameSetting;
 import statistics.WriteTextFile;
+import words.WordVector;
 
 /**
  * Created by user on 2016-07-31.
@@ -47,8 +49,19 @@ public class IntroActivity {
         Maps.getSelfWeightMap();
         Classified.classifyWeights(WordVectors.selfWordVectors, Classified.selfTrainedWords);
         
+        // 단어랑 가중치랑 개수가 제대로 맞았나 확인
         System.out.println("단어개수 : " + Words.NUM_OF_WORDS);
         System.out.println("가중치개수 : " + Weight.selfWeights.length);
+        
+        WordVector test1 = new WordVector("시험", (float) 0.2);
+        WordVector test2 = new WordVector("시험", (float) 0.2);
+        System.out.println(test1.compareTo(test2));
+        System.out.println(test1.equals(test2));
+        
+        TreeSet<WordVector> testSet = new TreeSet<WordVector>();
+        testSet.add(test1);
+        System.out.println("안에 들어 있어? " + testSet.contains(test2));
+        
 
         // 통계량을 보기위한 세팅들
         GameSetting.killerWordsPeriod = 5;          // 킬러단어 주기
